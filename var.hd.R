@@ -1,6 +1,7 @@
 VARhd <- function(Estimation){
   
   ## Retrieve and initialize variables 
+  
   invA    <- t(chol(as.matrix(summary(Estimation)$covres)))   # inverse of the A matrix
   Fcomp   <- companionmatrix(Estimation)                      # Companion matrix
   eps     <- ginv(invA) %*% t(residuals(Estimation))          # structural errors 
