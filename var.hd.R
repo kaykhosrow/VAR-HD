@@ -18,8 +18,8 @@ VARhd <- function(Estimation){
   HDshock_big <- array(0, dim=c(Estimation$p*nvar,nobs+1,nvar))
   HDshock <- array(0, dim=c(nvar,(nobs+1),nvar))
   
-  for (j in 1:nvar){  # for each variable
-    eps_big <- matrix(0,nvar,(nobs+1)) # matrix of shocks conformable with companion
+  for (j in 1:nvar){  
+    eps_big <- matrix(0,nvar,(nobs+1)) 
     eps_big[j,2:ncol(eps_big)] <- eps[j,]
     for (i in 2:(nobs+1)){
       HDshock_big[,i,j] <- invA_big %*% eps_big[,i] + Fcomp %*% HDshock_big[,(i-1),j]
@@ -27,7 +27,7 @@ VARhd <- function(Estimation){
     } 
   } 
   
-  HD.shock <- array(0, dim=c((nobs+Estimation$p),nvar,nvar))   # [nobs x shock x var]
+  HD.shock <- array(0, dim=c((nobs+Estimation$p),nvar,nvar)) 
   
   for (i in 1:nvar){
     for (j in 1:nvar){
