@@ -1,4 +1,4 @@
-VARhd <- function(Estimation){
+var.historical.decomposition <- function(Estimation){
   
   ## Retrieve and initialize variables 
   
